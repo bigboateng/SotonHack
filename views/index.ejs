@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <% include templates/cdn %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+    #textA, #textB{
+    	margin-left: 5px;
+    	margin-right: 5px;
+    }
+</style>
+  </head>
+  <body
+  <% include templates/navbar.ejs %>
+  <!-- main content -->
+<div id="menu" >
+	<div class="row" id="myRow">
+	<input type="text" class="form-control" placeholder="Building A" id="textA"/>
+	<input type="text" class="form-control" placeholder="Building B" id="textB"/>
+	<button class="btn btn-primary btn-block btn-lg" onclick="route()">Route!</button>
+	</div>
+</div>
+<div id="map"></div>
+
+
+ <!-- end of body -->
+</body>w
+<script src="javascripts/controllers/mainController.js"></script>
+</html>

@@ -1,0 +1,56 @@
+Building_ID,Entrance_ID,Latitude,Longitude,Opening_Method,Access_Method_Daytime,Access_Method_Evening,Access_Method_Night
+32,A,50.93606,-1.39594,Sensor + Automatic,Open,"Card scanner, Buzzer","Buzzer, Key"
+32,B,50.93641,-1.39574,Sensor + Automatic,Open,Card scanner,Key
+85,B,50.9364,-1.39561,Sensor + Automatic,Open,Card scanner,Key
+85,A,50.93616,-1.39505,Sensor + Automatic,Open,"Card scanner, Key",Key
+32,C,50.9368,-1.39607,Sensor + Automatic,Open,"Card scanner, Buzzer",Key
+67,A,50.93674,-1.39648,"Pushbutton + Automatic, Revolving",Open,"Card scanner, Key",Key
+6,A,50.93613,-1.39745,Sensor + Automatic,Open,Key,Key
+6,B,50.93596,-1.39755,Sensor + Automatic,Open,"Card scanner, Key",Key
+4,A,50.93581,-1.39778,Pushbutton + Automatic,Open,Card scanner,Key
+6,C,50.93612,-1.39786,Manual - Push/Pull,Open,Open,Open
+2A,A,50.93642,-1.39772,Sensor + Automatic,Open,Card scanner,Key
+2A,B,50.93632,-1.39741,Manual - Push/Pull,Open,Open,Key
+2,A,50.93645,-1.39787,"Pushbutton + Automatic, Sensor + Automatic",Open,Card scanner,Key
+2,B,50.93602,-1.39818,Manual - Push/Pull,Open,Card scanner,Key
+2,C,50.93582,-1.39822,Manual - Push/Pull,Open,Key,Key
+58,A,50.9365,-1.39895,"Pushbutton + Automatic, Sensor + Automatic",Open,Card scanner,Card scanner
+58,B,50.93676,-1.39849,Manual - Push/Pull,Open,Key,Key
+58,C,50.93666,-1.39902,Manual - Push/Pull,Open,Key,Key
+58,D,50.93645,-1.39834,Manual - Push/Pull,Open,Card scanner,Card scanner
+54,A,50.9363,-1.39899,Sensor + Automatic,Open,Card scanner,Key
+58A,A,50.93688,-1.39791,"Pushbutton + Automatic, Revolving",Open,Card scanner,Key
+53,A,50.93743,-1.39805,"Pushbutton + Automatic, Revolving",Open,Card scanner,Key
+53,B,50.93755,-1.39799,Pushbutton + Automatic,Card scanner,Card scanner,Key
+59,A,50.93713,-1.39771,Manual - Push/Pull,Card scanner,Card scanner,Key
+70AA,A,,,,,,
+70BB,A,,,,,,
+77CC,A,,,,,,
+70CC,B,,,,,,
+42,A,50.93443,-1.39741,Sensor + Automatic,Open,Open,Key
+42,B,50.93443,-1.39724,Manual - Push/Pull,Open,Key,Key
+42,C,50.93435,-1.39696,Manual - Push/Pull,Open,Key,Key
+42,D,50.93453,-1.39758,Manual - Push/Pull,Open,Open,Key
+44,E,50.93449,-1.39856,Manual - Push/Pull,Open,Card scanner,Card scanner
+44,A,50.9342219,-1.3989207,,,,
+44,B,50.9347,-1.39915,,,,
+44,C,50.9348239,-1.398864,,,,
+44,D,50.93463,-1.39865,,,,
+70CC,C,,,,Key,Key,Key
+29,A,50.93389,-1.39383,,,,
+29,B,50.934,-1.39419,,,,
+30,A,50.93413,-1.39454,,,,
+27,A,50.93433,-1.39405,,,,
+27,B,50.9345,-1.3934,,,,
+25,A,50.93472,-1.39318,,,,
+25,B,50.93487,-1.39364,,,,
+25,C,50.93472,-1.39338,,,,
+25,D,50.9349,-1.39315,,,,
+7,A,50.93523,-1.39388,,,,
+7,B,50.93549,-1.39451,,,,
+54,B,50.93605,-1.39871,,,,
+56,A,50.93612,-1.39863,,,,
+60,A,50.93766,-1.39818,,,,
+60,B,50.93777,-1.39695,,,,
+176,A,50.9368,-1.40492,,,,
+176,B,50.93684,-1.40455,,,,
