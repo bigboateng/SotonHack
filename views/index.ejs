@@ -4,27 +4,30 @@
   <% include templates/cdn %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <style>
-    #textA, #textB{
-    	margin-left: 5px;
-    	margin-right: 5px;
-    }
-</style>
   </head>
   <body
-  <% include templates/navbar.ejs %>
-  <!-- main content -->
+<% include templates/navbar.ejs %> 
 <div id="menu" >
 	<div class="row" id="myRow">
-	<input type="text" class="form-control" placeholder="Building A" id="textA"/>
+	<div class="col-md-10">
+		<input type="text" class="form-control" placeholder="Building A" id="textA"/>
 	<input type="text" class="form-control" placeholder="Building B" id="textB"/>
-	<button class="btn btn-primary btn-block btn-lg" onclick="route()">Route!</button>
+	<button class="btn btn-primary btn-block" onclick="route()">Route!</button>
+	</div>
+	<div class="col-md-2">
+		<div class="checkbox">
+          <label>
+            <input type="checkbox" class="block" style="color:white;" onclick="checkChanged()" id="check"> Use Current Location
+          </label>
+        </div>
+	</div>
+	
 	</div>
 </div>
 <div id="map"></div>
 
 
  <!-- end of body -->
-</body>w
+</body>
 <script src="javascripts/controllers/mainController.js"></script>
 </html>

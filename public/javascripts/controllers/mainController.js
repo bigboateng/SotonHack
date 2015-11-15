@@ -14,7 +14,8 @@
  // new algorithm
  var nCounter = 0;
 
-
+// actual location coordinates
+var currLat, currLng;
 
  function initMap() {
  	directionsService = new google.maps.DirectionsService();
@@ -32,7 +33,8 @@
  		center: {lat: 50.935742, lng: -1.3988268},
  		zoom: 17,
  		zoomControl: true,
- 		scaleControl: true
+ 		scaleControl: true,
+ 		styles:[{"stylers":[{"saturation":100},{"gamma":0.6}]}]
  	});
 
 
@@ -47,7 +49,8 @@
 	var marker = new google.maps.Marker({
 		position: myLatLng,
 		map: map,
-		title: building.id
+		title: building.id,
+		label: building.id,
 	});
 
 	marker.addListener('click', function() {
@@ -56,6 +59,7 @@
 	});
 
  	// this is markers for the entrances 
+ 	/*
  	entrances.forEach(function(entrance){
  		var entranceMarker = new google.maps.Marker({
  			position: {
@@ -74,6 +78,7 @@
  			infowindow.open(map, entranceMarker);
  		});
  	});
+ */
 
 
  	// end of entrances
@@ -84,25 +89,36 @@
 
  function route()
  {
- 	var textA = Number($('#textA').val());
- 	var textB = Number($('#textB').val());
-	// console.log(textA);
-	// console.log(textB)
-	var locA;
-	var locB;
-	geo.forEach(function(loc){
-		var theid = Number(loc.id);
-		if(theid == textA){
-			locA = loc;
-		//console.log(locA);
-			}
-
-		if(theid == textB){
+ 	var locA;
+ 	var locB;
+ 	if(document.getElementById('check').checked){
+ 		var textB = $('#textB').val();
+ 		locA = {id: "Current", lat: currLat, long: currLng};
+ 		geo.forEach(function(loc){
+ 			var theid = loc.id;
+ 			if(theid == textB){
 			locB = loc;
 		//console.log(locA);
 		}
-	});
+ 		});	
+ 	}else{
+	 	var textA = $('#textA').val();
+	 	var textB = $('#textB').val();
+		// console.log(textA)
+		// console.log(textB)
+		geo.forEach(function(loc){
+			var theid = loc.id;
+			if(theid == textA){
+				locA = loc;
+			console.log(locA);
+				}
 
+			if(theid == textB){
+				locB = loc;
+			//console.log(locA);
+			}
+		});
+	}
 	calcRoute(locA, locB);
 }
 
@@ -207,6 +223,27 @@ if (callbackCounter == callbackMAX){
 
 
 
+function checkChanged()
+{
+	if (document.getElementById('check').checked) 
+	{
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+			alert("Geolocation is not supported by this browser.");
+		}
+	} else {
+		$('#textA').val("");
+	}
+}
+
+function showPosition(position) {
+	currLat = position.coords.latitude;
+	currLng = position.coords.longitude;
+    $('#textA').val("Latitude: " + position.coords.latitude + 
+    "Longitude: " + position.coords.longitude); 
+
+}
 
 
 
