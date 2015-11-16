@@ -40,8 +40,31 @@ var currLat, currLng;
 
 	geo.forEach(function(building){
 	//console.log(building);
+	console.log(building);
 	var myLatLng = {lat: Number(building.lat), lng:Number(building.long)};
-	var contentString = "<h6>" + building.id + "</h6>";
+	var contentString = "<h6> Building id:" + building.id + "</h6>";
+	contentString += "<table class='table table-condensed'>
+	<thead>
+	 <thead>
+      <tr>
+        <th>Entrance Id</th>
+        <th>Access Method Day</th>
+        <th>Access Method Evening</th>
+      </tr>
+    </thead>
+	<tbody>
+	"
+	entrances.forEach(function(entrance){
+		if(entrance.Building_ID == building.id){
+			contentString += "<tr>
+        <td>" + entrance.Entrance_ID + "</td>
+        <td> " + entrance.Access_Method_Daytime + "</td>
+        <td>" + entrance.Access_Method_Evening" </td>
+      </tr>"
+		}
+	});
+
+	contentString += "</tbody></table>"
 	var infowindow = new google.maps.InfoWindow({
 		content: contentString
 	});
