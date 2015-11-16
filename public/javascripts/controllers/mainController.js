@@ -110,7 +110,7 @@ var currLat, currLng;
 			var theid = loc.id;
 			if(theid == textA){
 				locA = loc;
-			console.log(locA);
+			// console.log(locA);
 				}
 
 			if(theid == textB){
@@ -119,6 +119,8 @@ var currLat, currLng;
 			}
 		});
 	}
+	console.log(locA);
+	console.log(locB);
 	calcRoute(locA, locB);
 }
 
@@ -180,6 +182,7 @@ function findShortestPath(startLocation, destLocations, drawRouteCallback)
 		travelMode: google.maps.TravelMode.WALKING,
 		unitSystem: google.maps.UnitSystem.IMPERIAL,
 	}, function(response, status){
+		console.log(response);
 		infoOnRoutes = response.rows[0].elements;
 
 		var shortestRouteIndex;
