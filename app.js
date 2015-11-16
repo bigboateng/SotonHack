@@ -55,7 +55,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var port = 1317;
+var port = 1317 || process.env.PORT;
 
 app.listen(port, function(){
     console.log("listening on port " + port);
