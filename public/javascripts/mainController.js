@@ -15,7 +15,10 @@
  var nCounter = 0;
 
 // actual location coordinates
-var currLat, currLng;
+var currLat, currLng
+
+
+
 
  function initMap() {
  	directionsService = new google.maps.DirectionsService();
@@ -34,18 +37,21 @@ var currLat, currLng;
  		zoom: 17,
  		zoomControl: true,
  		scaleControl: true,
+ 		mapTypeControl: false,
  		styles:[{"stylers":[{"saturation":100},{"gamma":0.6}]}]
  	});
 
 
 	geo.forEach(function(building){
 	//console.log(building);
-	console.log(building);
+	//console.log(building);
 	var myLatLng = {lat: Number(building.lat), lng:Number(building.long)};
-	var contentString = "<h6> Building id:" + building.id + "</h6>";
-	contentString += "<table class='table table-condensed'><thead><thead><tr><th>Entrance Id</th><th>Access Method Day</th><th>Access Method Evening</th></tr></thead><tbody>";
+	var contentString = "<h6> Building " + building.id + "</h6>";
+	contentString += "<table class='table table-condensed'><thead><thead><tr><th>Entrance</th><th>Day Access</th><th>Evening Access</th></tr></thead><tbody>";
+	var entrancesCount = 0;
 	entrances.forEach(function(entrance){
 		if(entrance.Building_ID == building.id){
+			entrancesCount++;
 			contentString += "<tr><td>" + entrance.Entrance_ID + "</td><td> " + entrance.Access_Method_Daytime + "</td><td>"
 			 + entrance.Access_Method_Evening + " </td></tr>";
 		}
