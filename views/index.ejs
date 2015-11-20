@@ -4,29 +4,7 @@
   <title>Soton | Maps</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <style type="text/css">
-
-    html, body, #map {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-    }
-    #main_container{
-      position: relative;
-    }
-    #controls{
-     position: absolute;top: 1px;z-index: 99;
-   }
-
-   .reg_name {
-    max-width:50px;
-  }
-
-  .panel-title{
-    bottom: 2px;
-  }
-</style>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/index.css">
 </head>
 <body>
   <div id="main_container" style="height:100%; width:100%;">
@@ -47,18 +25,18 @@
         </div>  
       </div>
       <div class="form-group">
-          <button class="btn btn-primary btn-block" onclick="route()">Route!</button>
+          <button class="btn btn-primary btn-block" onclick="route()">Route</button>
       </div>
     </div>
   </div>
 </div>
 </div>
 </body>
+<script type="text/javascript" src="/bower_components/geolocation-marker/src/geolocation-marker.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="javascripts/mainController.js"></script>
 
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlOZHV9bjN1Y103_SezaX_PozQm3SDq0g&callback=initMap">
 </script>
-
 </html>

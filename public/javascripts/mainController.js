@@ -46,7 +46,11 @@ var currLat, currLng
 	//console.log(building);
 	//console.log(building);
 	var myLatLng = {lat: Number(building.lat), lng:Number(building.long)};
-	var contentString = "<h6> Building " + building.id + "</h6>";
+	var contentString = "<div class='panel panel-primary'>";
+	contentString += "<div class='panel-heading'>";
+	contentString += "<h6> Building " + building.id + "</h6>";
+	contentString += "</div>";
+	contentString += " <div class='panel-body'>";
 	contentString += "<table class='table table-condensed'><thead><thead><tr><th>Entrance</th><th>Day Access</th><th>Evening Access</th></tr></thead><tbody>";
 	var entrancesCount = 0;
 	entrances.forEach(function(entrance){
@@ -58,9 +62,13 @@ var currLat, currLng
 	});
 
 	contentString += "</tbody></table>"
+	contentString += "</div>";
+	contentString += "</div>";
 	var infowindow = new google.maps.InfoWindow({
 		content: contentString
 	});
+
+	infowindow.setContent(infowindow.getContent());
 
 	var marker = new google.maps.Marker({
 		position: myLatLng,
@@ -73,6 +81,7 @@ var currLat, currLng
 		infowindow.open(map, marker);
 	});
 	});
+
 
  	// this is markers for the entrances 
  	/*
@@ -100,15 +109,12 @@ var currLat, currLng
  	// end of entrances
  }
 
-
-
-
  function route()
  {
  	var locA;
  	var locB;
  	if(document.getElementById('check').checked){
- 		var textB = $('#textB').val();
+ 		var textB = String($('#textB').val());
  		locA = {id: "Current", lat: currLat, long: currLng};
  		geo.forEach(function(loc){
  			var theid = loc.id;
@@ -118,8 +124,8 @@ var currLat, currLng
 		}
  		});	
  	}else{
-	 	var textA = $('#textA').val();
-	 	var textB = $('#textB').val();
+	 	var textA = String($('#textA').val());
+	 	var textB = String($('#textB').val());
 		// console.log(textA)
 		// console.log(textB)
 		geo.forEach(function(loc){

@@ -1,0 +1,31 @@
+
+html, body, #map {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+#main_container{
+  position: relative;
+}
+#controls{
+ position: absolute;top: 1px;z-index: 99;
+}
+
+.reg_name {
+  max-width:50px;
+}
+
+.panel-title{
+  bottom: 2px;
+}
+
+.labels {
+  color: white;
+  background-color: red;
+  font-family: "Lucida Grande", "Arial", sans-serif;
+  font-size: 10px;
+  text-align: center;
+  width: 30px;
+  white-space: nowrap;
+}
