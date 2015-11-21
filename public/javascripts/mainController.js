@@ -6,6 +6,7 @@
  var directionsService;
  var polyline;
  var bounds;
+
  var distanceService;
  var callbackCounter = 0;
  var callbackResponses = 0;
@@ -17,7 +18,12 @@
 // actual location coordinates
 var currLat, currLng
 
+// marker for start and end
+var gMarkers = [];
+var startMarker;
+var endMarker;
 
+// markers array 
 
 
  function initMap() {
@@ -41,6 +47,16 @@ var currLat, currLng
  		styles:[{"stylers":[{"saturation":100},{"gamma":0.6}]}]
  	});
 
+
+
+ 	// var kmlLayer = new google.maps.KmlLayer({
+  //   url: 'http://id.southampton.ac.uk/dataset/places/latest.kml',
+  //   suppressInfoWindows: true,
+  //   map: map
+  // 	});
+
+ 	startMarker = new google.maps.Marker();
+ 	endMarker = new google.maps.Marker();
 
 	geo.forEach(function(building){
 	//console.log(building);
@@ -73,8 +89,8 @@ var currLat, currLng
 	var marker = new google.maps.Marker({
 		position: myLatLng,
 		map: map,
+		icon: "http://www.googlemapsmarkers.com/v1/" + building.id + "/0099FF/FFFFFF/FF0000/",
 		title: building.id,
-		label: building.id,
 	});
 
 	marker.addListener('click', function() {
@@ -141,8 +157,8 @@ var currLat, currLng
 			}
 		});
 	}
-	console.log(locA);
-	console.log(locB);
+	// console.log(locA);
+	// console.log(locB);
 	calcRoute(locA, locB);
 }
 
@@ -163,7 +179,7 @@ function calcRoute(locA, locB) {
 	formattedLocA = {lat: Number(locA.lat), lng: Number(locA.long)};
 
 	findShortestPath(formattedLocA, currentBuildingEntrances, function(start, end) {
-		console.log(start);
+		
 		map.setCenter(start);
 		var request = {
 			origin:start,
@@ -204,14 +220,14 @@ function findShortestPath(startLocation, destLocations, drawRouteCallback)
 		travelMode: google.maps.TravelMode.WALKING,
 		unitSystem: google.maps.UnitSystem.IMPERIAL,
 	}, function(response, status){
-		console.log(response);
+		//console.log(response);
 		infoOnRoutes = response.rows[0].elements;
 
 		var shortestRouteIndex;
 		//Should be largest integer
 		var shortestRouteDistance = 9999999999;
 
-		console.log(infoOnRoutes);
+		//console.log(infoOnRoutes);
 		for (var i = 0; i < infoOnRoutes.length; i++) {
 			if (infoOnRoutes[i].distance.value < shortestRouteDistance) {
 				shortestRouteDistance = infoOnRoutes[i].distance.value;
@@ -221,6 +237,19 @@ function findShortestPath(startLocation, destLocations, drawRouteCallback)
 
 		var closestEntrance = destLocations[shortestRouteIndex];
 		drawRouteCallback(startLocation, closestEntrance);
+
+		startMarker.setMap(null);
+		endMarker.setMap(null);
+		startLocation = new google.maps.Marker({
+		position: startLocation,
+		map: map,
+		});
+		endMarker = new google.maps.Marker({
+		position: closestEntrance,
+		map: map,
+		});
+		
+
 	});
 }
 
@@ -238,7 +267,7 @@ if (callbackCounter == callbackMAX){
 		}
 	});
 
-	console.log("shortest distance: " + shortestDist);
+	//console.log("shortest distance: " + shortestDist);
 	callbackCounter = 0;
 	callbackDistances = [];
 
@@ -269,7 +298,6 @@ function showPosition(position) {
     "Longitude: " + position.coords.longitude); 
 
 }
-
 
 
 
