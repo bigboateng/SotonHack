@@ -176,6 +176,9 @@ function calcRoute(locA, locB) {
 		}
 	});
 
+	if(currentBuildingEntrances.length == 0){
+		currentBuildingEntrances = locB;
+	}
 	formattedLocA = {lat: Number(locA.lat), lng: Number(locA.long)};
 
 	findShortestPath(formattedLocA, currentBuildingEntrances, function(start, end) {
