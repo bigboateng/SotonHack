@@ -300,8 +300,7 @@ function checkChanged()
 function showPosition(position) {
 	currLat = position.coords.latitude;
 	currLng = position.coords.longitude;
-    $('#textA').val("Latitude: " + position.coords.latitude + 
-    "Longitude: " + position.coords.longitude); 
+    $('#textA').val("Current Location"); 
 
 }
 
