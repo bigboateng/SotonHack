@@ -27,6 +27,8 @@ var endMarker;
 
 
  function initMap() {
+
+ 	alert("Website still under development so if any error occur/map doesnt work, just refresh the page.");
  	directionsService = new google.maps.DirectionsService();
  	directionsDisplay = new google.maps.DirectionsRenderer();
  	distanceService = new google.maps.DistanceMatrixService();
@@ -72,7 +74,8 @@ var endMarker;
 	entrances.forEach(function(entrance){
 		if(entrance.Building_ID == building.id){
 			entrancesCount++;
-			contentString += "<tr><td>" + entrance.Entrance_ID + "</td><td> " + entrance.Access_Method_Daytime + "</td><td>"
+			Access_Method_Daytime = entrance.Access_Method_Daytime = ""? "<span class='label label-info'>Data not available</span>":entrance.Access_Method_Daytime;
+			contentString += "<tr><td>" + entrance.Entrance_ID + "</td><td> " + Access_Method_Daytime + "</td><td>"
 			 + entrance.Access_Method_Evening + " </td></tr>";
 		}
 	});
